@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/customers": {
+    "/notes": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Customer"
+                    "$ref": "#/components/schemas/Note"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Note"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Customer"
+                  "$ref": "#/components/schemas/Note"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Note"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCustomer"
+                "$ref": "#/components/schemas/NewNote"
               }
             }
           }
         }
       }
     },
-    "/customers/count": {
+    "/notes/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Note"
         ],
         "parameters": []
       }
     },
-    "/customers/{id}": {
+    "/notes/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Customer"
+                  "$ref": "#/components/schemas/Note"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Note"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Customer"
+                  "$ref": "#/components/schemas/Note"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Note"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCustomer"
+                "$ref": "#/components/schemas/NewNote"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Note"
         ],
         "parameters": [
           {
@@ -514,24 +514,16 @@
   },
   "components": {
     "schemas": {
-      "Customer": {
+      "Note": {
         "required": [
           "id",
-          "name",
-          "email",
-          "contact"
+          "description"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "contact": {
+          "description": {
             "type": "string"
           },
           "images": {
@@ -604,25 +596,41 @@
               }
             }
           },
-          "location": {
-            "type": "object"
-          },
-          "responses": {
+          "orders": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "name"
+                "description",
+                "address"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "name": {
+                "description": {
                   "type": "string"
                 },
-                "customer": {
+                "images": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "add_more": {
+                  "type": "object"
+                },
+                "assigned_to": {
                   "type": "string"
+                },
+                "note": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "object"
                 },
                 "localizations": {
                   "type": "array",
@@ -650,21 +658,13 @@
             "items": {
               "required": [
                 "id",
-                "name",
-                "email",
-                "contact"
+                "description"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "name": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "contact": {
+                "description": {
                   "type": "string"
                 },
                 "images": {
@@ -673,10 +673,7 @@
                     "type": "string"
                   }
                 },
-                "location": {
-                  "type": "object"
-                },
-                "responses": {
+                "orders": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -712,26 +709,15 @@
           }
         }
       },
-      "NewCustomer": {
+      "NewNote": {
         "required": [
-          "name",
-          "email",
-          "contact"
+          "description"
         ],
         "properties": {
-          "name": {
+          "description": {
             "type": "string"
           },
-          "email": {
-            "type": "string"
-          },
-          "contact": {
-            "type": "string"
-          },
-          "location": {
-            "type": "object"
-          },
-          "responses": {
+          "orders": {
             "type": "array",
             "items": {
               "type": "string"
@@ -762,7 +748,7 @@
   },
   "tags": [
     {
-      "name": "Customer"
+      "name": "Note"
     }
   ]
 }

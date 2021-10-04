@@ -1250,6 +1250,63 @@
                 "type": "string"
               }
             }
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "description",
+                "address"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "images": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "add_more": {
+                  "type": "object"
+                },
+                "assigned_to": {
+                  "type": "string"
+                },
+                "note": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "object"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -1291,6 +1348,12 @@
           },
           "role": {
             "type": "string"
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

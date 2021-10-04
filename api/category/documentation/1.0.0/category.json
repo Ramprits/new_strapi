@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/customers": {
+    "/categories": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Customer"
+                    "$ref": "#/components/schemas/Category"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Category"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Customer"
+                  "$ref": "#/components/schemas/Category"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Category"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCustomer"
+                "$ref": "#/components/schemas/NewCategory"
               }
             }
           }
         }
       }
     },
-    "/customers/count": {
+    "/categories/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Category"
         ],
         "parameters": []
       }
     },
-    "/customers/{id}": {
+    "/categories/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Customer"
+                  "$ref": "#/components/schemas/Category"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Category"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Customer"
+                  "$ref": "#/components/schemas/Category"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Category"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCustomer"
+                "$ref": "#/components/schemas/NewCategory"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Customer"
+          "Category"
         ],
         "parameters": [
           {
@@ -514,12 +514,10 @@
   },
   "components": {
     "schemas": {
-      "Customer": {
+      "Category": {
         "required": [
           "id",
-          "name",
-          "email",
-          "contact"
+          "name"
         ],
         "properties": {
           "id": {
@@ -528,86 +526,7 @@
           "name": {
             "type": "string"
           },
-          "email": {
-            "type": "string"
-          },
-          "contact": {
-            "type": "string"
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "location": {
-            "type": "object"
-          },
-          "responses": {
+          "localizations": {
             "type": "array",
             "items": {
               "required": [
@@ -620,67 +539,6 @@
                 },
                 "name": {
                   "type": "string"
-                },
-                "customer": {
-                  "type": "string"
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "localizations": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "email",
-                "contact"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "contact": {
-                  "type": "string"
-                },
-                "images": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "location": {
-                  "type": "object"
-                },
-                "responses": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "localizations": {
                   "type": "array",
@@ -712,30 +570,13 @@
           }
         }
       },
-      "NewCustomer": {
+      "NewCategory": {
         "required": [
-          "name",
-          "email",
-          "contact"
+          "name"
         ],
         "properties": {
           "name": {
             "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "contact": {
-            "type": "string"
-          },
-          "location": {
-            "type": "object"
-          },
-          "responses": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "localizations": {
             "type": "array",
@@ -762,7 +603,7 @@
   },
   "tags": [
     {
-      "name": "Customer"
+      "name": "Category"
     }
   ]
 }

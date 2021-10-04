@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "customers",
+  "collectionName": "notes",
   "info": {
-    "name": "customer"
+    "name": "note",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -15,25 +16,7 @@
     }
   },
   "attributes": {
-    "name": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
-    "email": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "email",
-      "required": true
-    },
-    "contact": {
+    "description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -58,17 +41,9 @@
         }
       }
     },
-    "location": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "json"
-    },
-    "responses": {
-      "via": "customer",
-      "collection": "response"
+    "orders": {
+      "via": "note",
+      "collection": "order"
     }
   }
 }
